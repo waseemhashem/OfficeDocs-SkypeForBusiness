@@ -56,29 +56,31 @@ Microsoft has identified various customer deployments that are consuming feature
 2.	**Establish a Skype for Business hybrid topology**
 
     If you do not have a Skype for Business hybrid topology established, you need to do that to enable a smooth migration of your voicemail users. See [Configure Skype for Business hybrid](../hybrid/configure-federation-with-skype-for-business-online.md) for more details. 
-
+    
     > [!Note]
     > You do not need to migrate your users to online for the voicemail service migration. However, for on-premises users to leverage the cloud-based voicemail service, a hybrid topology is must be established.
 
-3. **Plan your Auto Attendant migration**
+3.	**Install the latest Cumulative Updates for your Skype for Business Server**
+
+4. **Plan your Auto Attendant migration**
     
     Admins can start migrating their Auto Attendants from ExchUMO to the Cloud Auto Attendant at any time. See [Set up a Phone System auto attendant](../../SfbOnline/what-is-phone-system-in-office-365/set-up-a-phone-system-auto-attendant.md) for more details. Microsoft plans to deliver additional Auto Attendant capabilities that customers consider critical for their migration by March 2019. Admins should evaluate the feature set and migrate their Auto Attendant instances accordingly. For feature-list comparison, see the [ExchUMO and Azure cloud-based services feature matrix](#exchumo-and-azure-cloud-based-services-feature-matrix).
 
-4. **Plan for your voicemail post-migration validation and testing**
+5. **Plan for your voicemail post-migration validation and testing**
 
     Voicemail migration is Microsoft driven; Admins are not required to do anything, given that the pre-requisite hybrid topology is established. Microsoft will perform the required validation and testing to make sure users’ voicemail migration is not disrupted; however, admins are encouraged to perform testing and validation on their side.  See [Suggested test plan and post-migration validation for admins](#suggested-test-plan-and-post-migration-validation-for-admins) for a recommended test plan. 
 
     > [!Note]
     > Lync Server 2010 is not supported. If you are in a 2010 server deployment, you should plan a server upgrade or consider migrating your users to Microsoft Teams or Skype for Business Online.  
 
-5. **Monitor the Admin Notification Center**
+6. **Monitor the Admin Notification Center**
 
     Look out for a notification in the Admin Notification Center with further details and timeline regarding your users' voicemail migration. Notifications will be sent at least 30 days before your migration period. 
 
     > [!Note]
     > If you received a notification with your users’ migration timeline and would like to postpone your migration for a business-critical reason, you can do so by contacting Microsoft Support. Note that you cannot postpone your migration beyond the retirement date, February 2020. For customers who may have more questions, please contact your account team or Microsoft Support. Customers already using Office 365 can submit a support case through the Office 365 Admin portal. 
 
-6. **Consider opting in starting from May 2019**
+7. **Consider opting in starting from May 2019**
 
     You can opt in for an early Voicemail service migration by May 2019 (if you have not received a migration notification), to align your migration with a license annuity or admin staff vacations, or to avoid business-critical periods. Details on the opt-in process will be updated in this article before May 2019.  
 
