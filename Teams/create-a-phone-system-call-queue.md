@@ -20,7 +20,7 @@ localization_priority: Normal
 f1keywords: None
 ms.custom:
 - Phone System
-description: "Learn how to set up phone system for PHone System call queues to give you an organizational greeting, music on hold, and redirecting calls to call agents in distribution lists and security groups. You can also set the maximum queue size, time out, and call handling options."
+description: "Learn how to set up phone system for Phone System call queues to give you an organizational greeting, music on hold, and redirecting calls to call agents in distribution lists and security groups. You can also set the maximum queue size, time out, and call handling options."
 ---
 
 # Create a Phone System call queue
@@ -36,10 +36,11 @@ Phone System call queues can provide:
 
 When someone calls in to a phone number that is associated  with a call queue via a [resource account](manage-resource-accounts.md), they will hear a greeting first (if any is set up), and then they will be put in the queue and wait for the next available call agent. The person calling in will hear music while they are on hold waiting, and the calls will be offered to the call agents in *First In, First Out* (FIFO) order.
   
-All calls waiting in the queue will be distributed using an attendant routing mode or serial routing mode:
+All calls waiting in the queue will be distributed using one of the following routing options:
   
-- With attendant routing, the first call in the queue will ring all agents at the same time.
-- With serial routing, the first call in the queue will ring all call agents one by one.
+- Attendant routing, the first call in the queue will ring all agents at the same time.
+- Serial routing, the first call in the queue will ring all call agents one by one, always starting from the first agent.
+- Round Robin routing, similar to serial except that the next call will be routed to the next agent in line.
 
     > [!NOTE]
     > Call agents who are **Offline**, have set their presence to **Do not Disturb,** or have opted out of the call queue won't be called.
@@ -54,22 +55,26 @@ All calls waiting in the queue will be distributed using an attendant routing mo
 
 To get started using call queues, it's important to remember a few things:
   
-- Your organization must have (at a minimum) an Enterprise E3 plus **Phone System** license or an Enterprise E5 license. The number of **Phone System** user licenses that are assigned affects the number of service numbers that are available to be used for call queues. The number of call queues you can have is dependent on the number of **Phone System** and **Audio Conferencing** licenses that are assigned in your organization. To learn more about licensing, see [Skype for Business add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing) or [Microsoft Teams add-on licensing](teams-add-on-licensing/microsoft-teams-add-on-licensing.md) .
+- A Call Queue is required to have an associated resource account. See [Manage resource accounts in Teams](manage-resource-accounts.md) for details on resource accounts.
+
+- If you are assigning an online service number to your call queue, you need to aquire and assign a **Phone System** add-on and a **Calling Plan** add-on to the resource account that will be associated with your call queue. Microsoft is working on an Application licensing model for call queues, until then you will need to use these user licenses. To learn more about licensing, see [Microsoft Teams add-on licensing](teams-add-on-licensing/microsoft-teams-add-on-licensing.md).
+
+- If you are assigning a hybrid number to your call queues, you need to aquire and assign a **Phone System** add-on to a resource account that will be associated with your call queue. Microsoft is working on an Application licensing model for call queues, until then you will need to use these user licenses. To learn more about licensing, see [Microsoft Teams add-on licensing](teams-add-on-licensing/microsoft-teams-add-on-licensing.md).
+
+> [!NOTE]
+> Call Queues that were created before the enforcemebt of license check on the resource accounts will not be subject to the license check and will continue to work. However, if you delete the previously assigned phone number you will need to assign the appropriate licenses when assigning a new phone number to them.
 
     > [!NOTE]
     > To redirect calls to people in your organization who are Online, they must have a **Phone System** license and be enabled for Enterprise Voice or have Office 365 Calling Plans. See  [Assign Skype for Business licenses](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/assign-skype-for-business-and-microsoft-teams-licenses.md) or [Assign Microsoft Teams licenses](assign-teams-licenses.md). To enable them for Enterprise Voice, you can use Windows PowerShell. For example run:  `Set-CsUser -identity "Amos Marble" -EnterpriseVoiceEnabled $true`
   
 - To learn more about Office 365 Calling Plans, see [Phone System and Calling Plans](calling-plan-landing-page.md) and [Calling Plans for Office 365](calling-plans-for-office-365.md).
-
-    > [!NOTE]
-    > Users hosted on-premises using Lync Server 2010 aren't supported as a call queue Agents.
   
-- You can only assign toll and toll-free service phone numbers that you got in the **Microsoft Teams admin center** or transferred from another service provider to Phone System call queues. To get and use toll-free service numbers, you need to set up Communications Credits.
+- You can only assign toll and toll-free service numbers that you got in the **Microsoft Teams admin center** or ported from another service provider to Phone System call queues. To get and use toll-free service numbers, you need to set up Communications Credits.
 
     > [!NOTE]
     > User (subscriber) phone numbers can't be assigned to call queues - only service toll or toll-free phone numbers can be used.
   
-- When you are distributing the incoming calls from an Phone System call queue, these clients are supported for call agents:
+- When you are distributing the incoming calls from an Phone System call queue, the following endpoints are supported for call agents:
 
   - Skype for Business desktop client 2016 (32 and 64-bit versions)
 
@@ -93,9 +98,11 @@ To get started using call queues, it's important to remember a few things:
 
   - Microsoft Teams Android app
 
-## Step 2 - Getting or transferring toll or toll-free service phone numbers
+## Step 2 - Assigning a Phone Number to call queues
 
-Before you can create and set up your call queues, you will need to get or transfer your existing toll or toll-free service numbers. After you get the toll or toll-free service phone numbers, they will show up in **Microsoft Teams admin center** > **Voice** > **Phone numbers**, and the **Number type** listed will be listed as **Service - Toll-Free**. To get your service numbers, see [Getting service phone numbers](https://docs.microsoft.com/SkypeForBusiness/what-is-phone-system-in-office-365/getting-service-phone-numbers?toc=/MicrosoftTeams/toc.json&bc=/microsoftteams/breadcrumb/toc.json) or if you want to transfer an existing service number, see [Transfer phone numbers to Office 365](transfer-phone-numbers-to-office-365.md).
+You can assign a Microsoft calling plan service number or a direct routing hybrid number to your auto attendant. See [Plan Direct Routing](direct-routing-plan.md) for details.
+
+To assign a service number, you will need to get or transfer your existing toll or toll-free service numbers. Once you get the toll or toll-free service phone numbers, they will show up in the <!-- validate nav path --> **Skype for Business admin center** > **Voice** > **Phone numbers**, and the **Number type** listed will be listed as **Service - Toll-Free**. To get your service numbers, see [Getting service phone numbers for Skype for Business and Microsoft Teams](/SkypeForBusiness/what-is-phone-system-in-office-365/getting-service-phone-numbers) or, if you want to transfer and existing service number, see [Transfer phone numbers to Office 365](transfer-phone-numbers-to-office-365.md).
   
 > [!NOTE]
 > If you are outside the United States, you can't use the Microsoft Teams admin center to get service numbers. Go to [Manage phone numbers for your organization](manage-phone-numbers-for-your-organization/manage-phone-numbers-for-your-organization.md) instead to see how to do it from the outside of the United States.
@@ -265,9 +272,9 @@ The timeout value can be set in seconds, at 15-second intervals. This allows you
 
   - **Voice application** Select the name of either a call queue or auto attendant that has already been created.
 
-## Changing a user's Caller ID to be a call queue's phone number
+## Changing agents/users Caller ID for Outbound calls 
 
-You can protect a user's identity by changing their caller ID for the outbound calls to a call queue instead by creating a policy using the **New-CallingLineIdentity** cmdlet.
+You can protect agents or users identity by changing their caller ID for outbound calls to use call queue or auto attendant service number instead of their own DID, by creating a policy using the **New-CallingLineIdentity** cmdlet.
 
 To do this, run:
 
