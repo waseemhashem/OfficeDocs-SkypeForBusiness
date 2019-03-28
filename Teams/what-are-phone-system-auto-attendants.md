@@ -49,7 +49,12 @@ A Phone System auto attendant has the following features:
 
 To get started using auto attendants, it's important to remember that:
   
-- You need to assign a Phone System license to a resource account that will be associated with your auto attendant. To learn more about licensing, see [Microsoft Teams add-on licensing](teams-add-on-licensing/microsoft-teams-add-on-licensing.md).
+- If you are assigning an online service number to your Auto Attendat, you need to aquire and assign a **Phone System** add-on and a **Calling Plan** add-on to the resource account that will be associated with your auto attendant. Microsoft is working on an Application licensing model for Auto Attendants, until then you will need to use these user licenses. To learn more about licensing, see [Microsoft Teams add-on licensing](teams-add-on-licensing/microsoft-teams-add-on-licensing.md).
+
+- If you are assigning a hybrid number to your Auto Attendat, you need to aquire and assign a **Phone System** add-on to a resource account that will be associated with your auto attendant. Microsoft is working on an Application licensing model for Auto Attendants, until then you will need to use these user licenses. To learn more about licensing, see [Microsoft Teams add-on licensing](teams-add-on-licensing/microsoft-teams-add-on-licensing.md).
+
+> [!NOTE]
+> Auto Attendants that were created before the enforcemebt of license check on the resource accounts will not be subject to the license check and will continue to work. However, if you delete the previously assigned phone number you will need to assign the appropriate licenses when assigning a new phone number to them. 
     
     > [!TIP]
     > To redirect calls to an operator or a menu option that is an Online user with a **Phone System** license, you will need to enable them for Enterprise Voice or assign Calling Plans to them. See [Assign Microsoft Teams licenses](assign-teams-licenses.md). You can also use Windows PowerShell. For example run:  `Set-CsUser -identity "Amos Marble" -EnterpriseVoiceEnabled $true`
