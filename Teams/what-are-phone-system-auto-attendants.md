@@ -30,7 +30,7 @@ Phone System in Office 365 provides auto attendants, which can be used to let ex
   
 An auto attendant is a series of voice prompts or audio files that callers hear instead of a human operator when they call an organization. When people call a number associated with an auto attendant, their choices can redirect the call to a user or locate someone in your organization and then connect to that user. They can express their choices and interact with the menu system by using a phone keypad (DTMF) or speech recognition.
   
-To set up an auto attendant for the Phone System in Office 365, go [Set up a Phone System auto attendant](create-a-phone-system-auto-attendant.md).
+To set up an auto attendant for the Phone System in Office 365, go [Set up a Phone System auto attendant](create-a-phone-system-auto-attendant.md). 
   
 A Phone System auto attendant has the following features:
   
